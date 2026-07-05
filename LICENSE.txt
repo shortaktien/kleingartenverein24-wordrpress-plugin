@@ -1,0 +1,8 @@
+KGV24 is licensed under the GNU General Public License v2.0 or later.
+
+You may redistribute and/or modify this plugin under the terms of the GNU
+General Public License as published by the Free Software Foundation, either
+version 2 of the License, or any later version.
+
+Full license text:
+https://www.gnu.org/licenses/gpl-2.0.html
