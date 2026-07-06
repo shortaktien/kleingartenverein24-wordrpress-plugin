@@ -57,7 +57,34 @@ final class KGV24_API_Client
 
     public function get_plots()
     {
-        $response = $this->request('GET', '/api/tenant/plots');
+        return $this->get_vacant_plots();
+    }
+
+    public function get_vacant_plots()
+    {
+        $response = $this->request('GET', '/api/tenant/wordpress/vacant-plots');
+
+        if (is_wp_error($response)) {
+            return $response;
+        }
+
+        return $this->extract_items($response);
+    }
+
+    public function get_work_assignments()
+    {
+        $response = $this->request('GET', '/api/tenant/wordpress/work-assignments');
+
+        if (is_wp_error($response)) {
+            return $response;
+        }
+
+        return $this->extract_items($response);
+    }
+
+    public function get_meetings()
+    {
+        $response = $this->request('GET', '/api/tenant/wordpress/meetings');
 
         if (is_wp_error($response)) {
             return $response;
