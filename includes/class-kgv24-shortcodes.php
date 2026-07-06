@@ -57,7 +57,7 @@ final class KGV24_Shortcodes
         wp_enqueue_style('kgv24-public');
 
         if (count($plots) === 0) {
-            return $this->render_notice(__('Aktuell sind keine freien Gaerten verfuegbar.', 'kgv24'), 'empty');
+            return $this->render_notice(__('Aktuell sind keine freien Gärten verfügbar.', 'kgv24'), 'empty');
         }
 
         ob_start();
@@ -81,7 +81,7 @@ final class KGV24_Shortcodes
 
                         <?php if ($this->get_value($plot, ['area_sqm', 'area', 'size_sqm', 'size']) !== '') : ?>
                             <div>
-                                <dt><?php echo esc_html__('Groesse', 'kgv24'); ?></dt>
+                                <dt><?php echo esc_html__('Größe', 'kgv24'); ?></dt>
                                 <dd><?php echo esc_html($this->format_area($this->get_value($plot, ['area_sqm', 'area', 'size_sqm', 'size']))); ?></dd>
                             </div>
                         <?php endif; ?>

@@ -31,7 +31,7 @@ final class KGV24_Settings
             'manage_options',
             self::PAGE_SLUG,
             [$this, 'render_page'],
-            'dashicons-admin-site-alt3',
+            'dashicons-palmtree',
             58
         );
     }
@@ -52,7 +52,7 @@ final class KGV24_Settings
             'kgv24_api_section',
             __('API-Verbindung', 'kgv24'),
             static function () {
-                echo '<p>' . esc_html__('Trage hier den tenant-gebundenen API-Key aus Kleingartenverein24 ein. Keys beginnen ueblicherweise mit kgv_live_ und werden als Bearer-Token gesendet; ein zusaetzlicher Tenant-Slug ist nicht noetig.', 'kgv24') . '</p>';
+                echo '<p>' . esc_html__('Trage hier den tenant-gebundenen API-Key aus Kleingartenverein24 ein. Keys beginnen üblicherweise mit kgv_live_ und werden als Bearer-Token gesendet; ein zusätzlicher Tenant-Slug ist nicht nötig.', 'kgv24') . '</p>';
             },
             self::PAGE_SLUG
         );
@@ -127,7 +127,7 @@ final class KGV24_Settings
             esc_attr(KGV24_API_Client::OPTION_NAME),
             esc_attr($has_token ? __('API-Key gespeichert - leer lassen zum Behalten', 'kgv24') : 'kgv_live_...')
         );
-        echo '<p class="description">' . esc_html__('Der vollstaendige Key wird von KGV24 nur direkt nach Erstellung oder Erneuerung angezeigt. Leer lassen, um den gespeicherten Key beizubehalten.', 'kgv24') . '</p>';
+        echo '<p class="description">' . esc_html__('Der vollständige Key wird von KGV24 nur direkt nach Erstellung oder Erneuerung angezeigt. Leer lassen, um den gespeicherten Key beizubehalten.', 'kgv24') . '</p>';
 
         if ($has_token) {
             printf(
@@ -159,8 +159,8 @@ final class KGV24_Settings
 
             <hr>
 
-            <h2><?php echo esc_html__('Authentifizierung pruefen', 'kgv24'); ?></h2>
-            <p><?php echo esc_html__('Der Test ruft /api/tenant/session mit Authorization: Bearer auf. Der Tenant wird aus dem API-Key aufgeloest.', 'kgv24'); ?></p>
+            <h2><?php echo esc_html__('Authentifizierung prüfen', 'kgv24'); ?></h2>
+            <p><?php echo esc_html__('Der Test ruft /api/tenant/session mit Authorization: Bearer auf. Der Tenant wird aus dem API-Key aufgelöst.', 'kgv24'); ?></p>
 
             <?php if ($settings['last_auth_checked_at'] !== '') : ?>
                 <p>
@@ -192,7 +192,7 @@ final class KGV24_Settings
     public function handle_auth_test(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('Du hast keine Berechtigung fuer diese Aktion.', 'kgv24'));
+            wp_die(esc_html__('Du hast keine Berechtigung für diese Aktion.', 'kgv24'));
         }
 
         check_admin_referer('kgv24_test_auth');
@@ -207,7 +207,7 @@ final class KGV24_Settings
             $notice = 'error';
         } else {
             $settings['last_auth_status'] = 'success';
-            $tenant_slug = is_array($result) && isset($result['tenant_slug']) ? trim((string) $result['tenant_slug']) : '';
+            $tenant_slug = is_array($result) ? $this->get_tenant_slug($result) : '';
             $settings['last_auth_message'] = $tenant_slug !== ''
                 ? sprintf(
                     /* translators: %s is the tenant slug returned by the API. */
@@ -233,8 +233,29 @@ final class KGV24_Settings
         $notice = sanitize_key((string) wp_unslash($_GET['kgv24_notice']));
         $settings = $this->client->get_settings();
         $class = $notice === 'success' ? 'notice notice-success is-dismissible' : 'notice notice-error is-dismissible';
-        $message = $settings['last_auth_message'] ?: __('Authentifizierung konnte nicht geprueft werden.', 'kgv24');
+        $message = $settings['last_auth_message'] ?: ($notice === 'success'
+            ? __('Authentifizierung erfolgreich.', 'kgv24')
+            : __('Authentifizierung konnte nicht geprüft werden.', 'kgv24'));
 
         printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
+    }
+
+    private function get_tenant_slug(array $result): string
+    {
+        foreach (['tenant_slug', 'tenantSlug', 'slug'] as $key) {
+            if (isset($result[$key]) && !is_array($result[$key]) && !is_object($result[$key])) {
+                return trim((string) $result[$key]);
+            }
+        }
+
+        if (isset($result['tenant']) && is_array($result['tenant'])) {
+            foreach (['slug', 'tenant_slug', 'tenantSlug'] as $key) {
+                if (isset($result['tenant'][$key]) && !is_array($result['tenant'][$key]) && !is_object($result['tenant'][$key])) {
+                    return trim((string) $result['tenant'][$key]);
+                }
+            }
+        }
+
+        return '';
     }
 }

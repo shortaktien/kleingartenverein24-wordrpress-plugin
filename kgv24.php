@@ -2,7 +2,7 @@
 /**
  * Plugin Name: KGV24
  * Plugin URI: https://kleingartenverein24.de/
- * Description: Bindet Kleingartenverein24 in WordPress ein und zeigt freie Gaerten per Shortcode an.
+ * Description: Bindet Kleingartenverein24 in WordPress ein und zeigt freie Gärten per Shortcode an.
  * Version: 0.1.0
  * Author: Kleingartenverein24
  * Author URI: https://kleingartenverein24.de/

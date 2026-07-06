@@ -107,7 +107,7 @@ final class KGV24_API_Client
             if (JSON_ERROR_NONE !== json_last_error()) {
                 return new WP_Error(
                     'kgv24_invalid_json',
-                    __('Die KGV24 API hat keine gueltige JSON-Antwort geliefert.', 'kgv24')
+                    __('Die KGV24 API hat keine gültige JSON-Antwort geliefert.', 'kgv24')
                 );
             }
         }
