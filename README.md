@@ -5,8 +5,8 @@ KGV24 verbindet eine WordPress-Webseite mit der API von
 Inhalte aus ihrer KGV24-Verwaltung automatisch auf der eigenen Webseite
 anzeigen.
 
-Die erste Funktion zeigt freie beziehungsweise nicht gepachtete Gärten per
-Shortcode auf einer WordPress-Seite an.
+Das Plugin stellt Shortcodes bereit, mit denen Vereine Inhalte aus KGV24 auf
+WordPress-Seiten anzeigen können.
 
 ## Funktionen
 
@@ -64,9 +64,15 @@ den Tenant direkt aus dem Key auf.
 Wichtig: Der vollständige Key wird in Kleingartenverein24 nur direkt nach der
 Erstellung oder Erneuerung angezeigt. Danach ist nur noch eine Vorschau sichtbar.
 
-## Shortcode Verwenden
+## Shortcodes Verwenden
 
-Den Shortcode in eine Seite, einen Beitrag oder einen kompatiblen Block einfügen:
+Shortcodes werden in eine Seite, einen Beitrag oder einen kompatiblen Block
+eingefügt. Alle Shortcodes unterstützen optional `limit`, um die Anzahl der
+Einträge zu begrenzen.
+
+### Freie Gärten
+
+Zeigt freie beziehungsweise nicht gepachtete Gärten als Karten an:
 
 ```text
 [kgv-garten]
@@ -75,15 +81,15 @@ Den Shortcode in eine Seite, einen Beitrag oder einen kompatiblen Block einfüge
 Das Plugin ruft `/api/tenant/wordpress/vacant-plots` ab und zeigt freie Gärten
 als Karten an.
 
-### Optionen
-
 Maximal sechs Gärten anzeigen:
 
 ```text
 [kgv-garten limit="6"]
 ```
 
-Kommende Arbeitseinsätze anzeigen:
+### Arbeitseinsätze
+
+Zeigt kommende Arbeitseinsätze mit Datum, Beschreibung und freien Plätzen an:
 
 ```text
 [kgv-arbeitseinsaetze]
@@ -95,7 +101,9 @@ Maximal drei Arbeitseinsätze anzeigen:
 [kgv-arbeitseinsaetze limit="3"]
 ```
 
-Kommende Versammlungen anzeigen:
+### Versammlungen
+
+Zeigt kommende Versammlungen mit Datum, Ort und Agenda an:
 
 ```text
 [kgv-versammlungen]
