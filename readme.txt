@@ -4,7 +4,7 @@ Tags: garden, association, shortcode, api, listings
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,10 @@ Further shortcodes:
 
 The plugin adds a WordPress admin menu named "KGV24" where site administrators can configure the API URL, save a tenant-bound API key, and test the connection.
 
+= License =
+
+This plugin, all included libraries, and all included assets are GPL-licensed or available under a GPL-compatible license.
+
 = External service =
 
 This plugin connects to the Kleingartenverein24 API at `https://kleingartenverein24.de`.
@@ -40,7 +44,7 @@ Service website: https://kleingartenverein24.de
 
 == Installation ==
 
-1. Upload the plugin folder to `/wp-content/plugins/kgv24/`.
+1. Upload the plugin folder to `/wp-content/plugins/kleingartenverein24/`.
 2. Activate the plugin through the WordPress "Plugins" screen.
 3. Open the new "KGV24" admin menu.
 4. Enter the API URL. The default is `https://kleingartenverein24.de`.
@@ -95,7 +99,7 @@ The admin connection test and the frontend shortcode show an error message. API 
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.0 =
 
 * Initial plugin version.
 * Added KGV24 admin settings page.
@@ -108,6 +112,6 @@ The admin connection test and the frontend shortcode show an error message. API 
 
 == Upgrade Notice ==
 
-= 0.1.0 =
+= 1.0.0 =
 
 Initial release.

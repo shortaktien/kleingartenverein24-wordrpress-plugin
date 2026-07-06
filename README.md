@@ -31,7 +31,7 @@ WordPress-Seiten anzeigen können.
 1. Dieses Repository als Plugin-Ordner in WordPress ablegen:
 
    ```text
-   wp-content/plugins/kgv24/
+   wp-content/plugins/kleingartenverein24/
    ```
 
 2. Im WordPress-Adminbereich unter `Plugins` das Plugin `KGV24` aktivieren.
@@ -162,11 +162,15 @@ Plugin-Seite auf WordPress.org.
 
 Vor einer Einreichung prüfen:
 
+- Release-ZIP aus einem Ordner `kleingartenverein24` bauen, nicht aus dem
+  GitHub-Source-ZIP `kleingartenverein24-wordrpress-plugin-main`.
+- Hidden Files wie `.gitignore`, `.distignore`, `.git/`, `.github/` und `.idea/`
+  nicht in das Release-ZIP aufnehmen.
 - `readme.txt` im offiziellen Validator testen:
   https://wordpress.org/plugins/developers/readme-validator/
 - `Contributors:` auf echte WordPress.org-Benutzernamen setzen
 - `Stable tag:` mit der Plugin-Version in `kgv24.php` synchron halten
-- Release im WordPress.org-SVN nach Freigabe unter `tags/0.1.0/` ablegen
+- Release im WordPress.org-SVN nach Freigabe unter `tags/1.0.0/` ablegen
 - Echte Screenshots als `screenshot-1.png`, `screenshot-2.png` ergänzen
 - Banner/Icon-Assets für WordPress.org vorbereiten
 - Datenschutz-/Service-Hinweise zu `https://kleingartenverein24.de` final mit
@@ -187,4 +191,7 @@ Vor einer Einreichung prüfen:
 
 ## Lizenz
 
-Noch nicht festgelegt.
+Dieses Plugin, alle enthaltenen Bibliotheken und alle anderen enthaltenen Assets
+sind GPL-lizenziert oder unterliegen einer GPL-kompatiblen Lizenz.
+
+KGV24 ist unter der GNU General Public License v2.0 oder später lizenziert.
