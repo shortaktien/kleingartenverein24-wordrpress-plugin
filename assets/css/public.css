@@ -79,3 +79,74 @@
     background: #f7faf8;
     color: #415247;
 }
+
+.kgv24-list {
+    display: grid;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.kgv24-list-card {
+    border: 1px solid #d7e1d8;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(34, 48, 37, 0.08);
+    color: #1f2c22;
+    padding: 20px;
+}
+
+.kgv24-list-card__date {
+    color: #176b32;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.kgv24-list-card__title {
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.kgv24-list-card__text {
+    margin: 12px 0 0;
+}
+
+.kgv24-list-card__facts {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0 0;
+}
+
+.kgv24-list-card__facts div {
+    border-top: 1px solid #edf1ee;
+    padding-top: 12px;
+}
+
+.kgv24-list-card__facts dt,
+.kgv24-list-card__label {
+    color: #5f6e63;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.kgv24-list-card__facts dd {
+    font-size: 16px;
+    margin: 0;
+}
+
+.kgv24-list-card__section {
+    border-top: 1px solid #edf1ee;
+    margin: 16px 0 0;
+    padding-top: 12px;
+}
+
+.kgv24-list-card__items {
+    margin: 8px 0 0 18px;
+    padding: 0;
+}
+
+.kgv24-list-card__items li {
+    margin: 0 0 6px;
+}

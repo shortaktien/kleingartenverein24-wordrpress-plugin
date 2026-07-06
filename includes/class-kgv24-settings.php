@@ -181,10 +181,12 @@ final class KGV24_Settings
 
             <hr>
 
-            <h2><?php echo esc_html__('Shortcode', 'kgv24'); ?></h2>
-            <p>
-                <code>[kgv-garten]</code>
-            </p>
+            <h2><?php echo esc_html__('Shortcodes', 'kgv24'); ?></h2>
+            <ul>
+                <li><code>[kgv-garten]</code></li>
+                <li><code>[kgv-arbeitseinsaetze]</code></li>
+                <li><code>[kgv-versammlungen]</code></li>
+            </ul>
         </div>
         <?php
     }

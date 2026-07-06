@@ -15,6 +15,8 @@ Shortcode auf einer WordPress-Seite an.
 - Speichern eines tenant-gebundenen API-Keys
 - Verbindungstest gegen `/api/tenant/session`
 - Shortcode `[kgv-garten]` für freie Gärten
+- Shortcode `[kgv-arbeitseinsaetze]` für kommende Arbeitseinsätze
+- Shortcode `[kgv-versammlungen]` für kommende Versammlungen
 - Responsives Kartenlayout für die Ausgabe im Frontend
 
 ## Voraussetzungen
@@ -70,7 +72,7 @@ Den Shortcode in eine Seite, einen Beitrag oder einen kompatiblen Block einfüge
 [kgv-garten]
 ```
 
-Das Plugin ruft `/api/tenant/plots` ab und zeigt die als frei erkannten Gärten
+Das Plugin ruft `/api/tenant/wordpress/vacant-plots` ab und zeigt freie Gärten
 als Karten an.
 
 ### Optionen
@@ -81,17 +83,28 @@ Maximal sechs Gärten anzeigen:
 [kgv-garten limit="6"]
 ```
 
-Auch Gärten anzeigen, bei denen die API noch kein eindeutiges Frei-/Verpachtet-
-Feld liefert:
+Kommende Arbeitseinsätze anzeigen:
 
 ```text
-[kgv-garten show_unknown="1"]
+[kgv-arbeitseinsaetze]
 ```
 
-Beide Optionen kombinieren:
+Maximal drei Arbeitseinsätze anzeigen:
 
 ```text
-[kgv-garten limit="6" show_unknown="1"]
+[kgv-arbeitseinsaetze limit="3"]
+```
+
+Kommende Versammlungen anzeigen:
+
+```text
+[kgv-versammlungen]
+```
+
+Maximal zwei Versammlungen anzeigen:
+
+```text
+[kgv-versammlungen limit="2"]
 ```
 
 ## Darstellung
@@ -105,6 +118,8 @@ Angezeigt werden aktuell, sofern von der API geliefert:
 - Lage beziehungsweise Weg
 - Größe in Quadratmetern
 - Status-Badge `Frei`
+- Datum, Beschreibung und freie Plätze bei Arbeitseinsätzen
+- Datum, Ort und Agenda bei Versammlungen
 
 ## Authentifizierung Und Zugriff
 
@@ -151,9 +166,6 @@ Vor einer Einreichung prüfen:
 
 ## Roadmap
 
-- Exaktes API-Feld für freie Gärten final anbinden, sobald es stabil
-  dokumentiert ist
-- Weitere Shortcodes für KGV24-Inhalte
 - Optionale Anzeige-Einstellungen im WordPress-Admin
 - Lokalisierung mit `.pot`-Datei
 - Release-Paket für einfache Plugin-Installation

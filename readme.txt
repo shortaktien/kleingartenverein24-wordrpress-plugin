@@ -8,15 +8,21 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Shows available garden plots from Kleingartenverein24 on a WordPress site using a shortcode.
+Shows available garden plots, work assignments, and meetings from Kleingartenverein24 on a WordPress site using shortcodes.
 
 == Description ==
 
-KGV24 connects a WordPress site with the Kleingartenverein24 API. Garden clubs can display available or not yet leased garden plots from their tenant account on their public website.
+KGV24 connects a WordPress site with the Kleingartenverein24 API. Garden clubs can display available or not yet leased garden plots, upcoming work assignments, and upcoming meetings from their tenant account on their public website.
 
 The first feature is a shortcode for available garden plots:
 
 `[kgv-garten]`
+
+Further shortcodes:
+
+`[kgv-arbeitseinsaetze]`
+
+`[kgv-versammlungen]`
 
 The plugin adds a WordPress admin menu named "KGV24" where site administrators can configure the API URL, save a tenant-bound API key, and test the connection.
 
@@ -28,7 +34,7 @@ API requests are made only after an administrator configures an API key in the p
 
 `Authorization: Bearer kgv_live_...`
 
-The API is used to authenticate the tenant and retrieve tenant garden plot data. A separate `X-Tenant-Slug` header is not required for tenant-bound API keys.
+The API is used to authenticate the tenant and retrieve tenant garden plot, work assignment, and meeting data. A separate `X-Tenant-Slug` header is not required for tenant-bound API keys.
 
 Service website: https://kleingartenverein24.de
 
@@ -41,7 +47,7 @@ Service website: https://kleingartenverein24.de
 5. Enter the tenant-bound API key from Kleingartenverein24.
 6. Save the settings.
 7. Run "Authentifizierung testen".
-8. Add `[kgv-garten]` to a page, post, or shortcode-compatible block.
+8. Add `[kgv-garten]`, `[kgv-arbeitseinsaetze]`, or `[kgv-versammlungen]` to a page, post, or shortcode-compatible block.
 
 == Frequently Asked Questions ==
 
@@ -63,9 +69,25 @@ You can limit the number of cards:
 
 `[kgv-garten limit="6"]`
 
-You can also show plots where the API response does not yet include a clear available/leased status:
+= Which shortcode displays upcoming work assignments? =
 
-`[kgv-garten show_unknown="1"]`
+Use:
+
+`[kgv-arbeitseinsaetze]`
+
+You can limit the number of entries:
+
+`[kgv-arbeitseinsaetze limit="3"]`
+
+= Which shortcode displays upcoming meetings? =
+
+Use:
+
+`[kgv-versammlungen]`
+
+You can limit the number of entries:
+
+`[kgv-versammlungen limit="2"]`
 
 = What happens if the API key is invalid? =
 
@@ -80,6 +102,8 @@ The admin connection test and the frontend shortcode show an error message. API 
 * Added tenant-bound Bearer token support.
 * Added authentication test against `/api/tenant/session`.
 * Added `[kgv-garten]` shortcode for available garden plots.
+* Added `[kgv-arbeitseinsaetze]` shortcode for upcoming work assignments.
+* Added `[kgv-versammlungen]` shortcode for upcoming meetings.
 * Added responsive frontend card styling.
 
 == Upgrade Notice ==
