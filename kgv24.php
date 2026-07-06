@@ -5,9 +5,8 @@
  * Description: Bindet Kleingartenverein24 in WordPress ein und zeigt freie Gärten per Shortcode an.
  * Version: 1.0.0
  * Author: Kleingartenverein24
- * Author URI: https://kleingartenverein24.de/
+ * Author URI: https://shortaktien.de/
  * Text Domain: kleingartenverein24
- * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * License: GPL v2 or later
