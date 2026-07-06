@@ -182,11 +182,34 @@ final class KGV24_Settings
             <hr>
 
             <h2><?php echo esc_html__('Shortcodes', 'kgv24'); ?></h2>
-            <ul>
-                <li><code>[kgv-garten]</code></li>
-                <li><code>[kgv-arbeitseinsaetze]</code></li>
-                <li><code>[kgv-versammlungen]</code></li>
-            </ul>
+            <p><?php echo esc_html__('Füge einen Shortcode in eine Seite, einen Beitrag oder einen shortcode-kompatiblen Block ein. Mit dem optionalen Attribut limit begrenzt du die Anzahl der Einträge.', 'kgv24'); ?></p>
+
+            <table class="widefat striped">
+                <thead>
+                    <tr>
+                        <th scope="col"><?php echo esc_html__('Shortcode', 'kgv24'); ?></th>
+                        <th scope="col"><?php echo esc_html__('Was wird angezeigt?', 'kgv24'); ?></th>
+                        <th scope="col"><?php echo esc_html__('Beispiel mit Limit', 'kgv24'); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>[kgv-garten]</code></td>
+                        <td><?php echo esc_html__('Zeigt freie Gärten aus Kleingartenverein24 als Karten an.', 'kgv24'); ?></td>
+                        <td><code>[kgv-garten limit="6"]</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>[kgv-arbeitseinsaetze]</code></td>
+                        <td><?php echo esc_html__('Zeigt kommende Arbeitseinsätze mit Datum, Beschreibung und freien Plätzen an.', 'kgv24'); ?></td>
+                        <td><code>[kgv-arbeitseinsaetze limit="3"]</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>[kgv-versammlungen]</code></td>
+                        <td><?php echo esc_html__('Zeigt kommende Versammlungen mit Datum, Ort und Agenda an.', 'kgv24'); ?></td>
+                        <td><code>[kgv-versammlungen limit="2"]</code></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <?php
     }
