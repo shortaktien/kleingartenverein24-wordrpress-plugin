@@ -3,10 +3,10 @@
  * Plugin Name: KGV24
  * Plugin URI: https://kleingartenverein24.de/
  * Description: Bindet Kleingartenverein24 in WordPress ein und zeigt freie Gärten per Shortcode an.
- * Version: 0.1.0
+ * Version: 1.0.0
  * Author: Kleingartenverein24
  * Author URI: https://kleingartenverein24.de/
- * Text Domain: kgv24
+ * Text Domain: kleingartenverein24
  * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 7.4
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 define('KGV24_PLUGIN_FILE', __FILE__);
 define('KGV24_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('KGV24_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('KGV24_VERSION', '0.1.0');
+define('KGV24_VERSION', '1.0.0');
 
 require_once KGV24_PLUGIN_DIR . 'includes/class-kgv24-api-client.php';
 require_once KGV24_PLUGIN_DIR . 'includes/class-kgv24-settings.php';

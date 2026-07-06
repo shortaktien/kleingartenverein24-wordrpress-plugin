@@ -98,7 +98,7 @@ final class KGV24_API_Client
         if (!$this->has_token()) {
             return new WP_Error(
                 'kgv24_missing_token',
-                __('Bitte hinterlege zuerst den tenant-gebundenen KGV24 API-Key in den Plugin-Einstellungen.', 'kgv24')
+                __('Bitte hinterlege zuerst den tenant-gebundenen KGV24 API-Key in den Plugin-Einstellungen.', 'kleingartenverein24')
             );
         }
 
@@ -134,7 +134,7 @@ final class KGV24_API_Client
             if (JSON_ERROR_NONE !== json_last_error()) {
                 return new WP_Error(
                     'kgv24_invalid_json',
-                    __('Die KGV24 API hat keine gültige JSON-Antwort geliefert.', 'kgv24')
+                    __('Die KGV24 API hat keine gültige JSON-Antwort geliefert.', 'kleingartenverein24')
                 );
             }
         }
@@ -143,14 +143,14 @@ final class KGV24_API_Client
             $message = $this->extract_error_message($data);
 
             if ($message === '' && in_array($status_code, [401, 403], true)) {
-                $message = __('Der KGV24 API-Key wurde abgelehnt oder der API-Zugriff ist durch Abo-/Trial-Status blockiert.', 'kgv24');
+                $message = __('Der KGV24 API-Key wurde abgelehnt oder der API-Zugriff ist durch Abo-/Trial-Status blockiert.', 'kleingartenverein24');
             }
 
             return new WP_Error(
                 'kgv24_api_error',
                 $message ?: sprintf(
                     /* translators: %d is an HTTP status code. */
-                    __('KGV24 API-Anfrage fehlgeschlagen. HTTP-Status: %d.', 'kgv24'),
+                    __('KGV24 API-Anfrage fehlgeschlagen. HTTP-Status: %d.', 'kleingartenverein24'),
                     $status_code
                 ),
                 [

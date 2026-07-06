@@ -1,4 +1,7 @@
 .git/
 .github/
+.idea/
+.gitignore
 .DS_Store
 .distignore
+languages/.gitkeep
